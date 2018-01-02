@@ -1,11 +1,18 @@
+#Python Program for recursive binary search
+
+#Search for ITEM target in the given array and returns it's position
+
 def binary_search(arr, beg, end, target):
-    mid = (beg + end)//2
-    if arr[mid] == target:
-        return(mid)
-    elif mid > target:
-        return binary_search(arr, beg, mid-1, target)
+    if end>=1:
+        mid = (beg + end)//2
+        if arr[mid] == target:
+            return mid
+        elif mid > target:
+            return binary_search(arr, beg, mid-1, target)
+        else:
+            return binary_search(arr, mid+1, end, target) 
     else:
-        return binary_search(arr, mid+1, end, target) 
+        return -1
     
 arr = [2, 4, 10, 40, 56, 15]
 print(binary_search(arr,1,len(arr)-1,15))
