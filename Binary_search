@@ -1,0 +1,11 @@
+def binary_search(arr, beg, end, target):
+    mid = (beg + end)//2
+    if arr[mid] == target:
+        return(mid)
+    elif mid > target:
+        return binary_search(arr, beg, mid-1, target)
+    else:
+        return binary_search(arr, mid+1, end, target) 
+    
+arr = [2, 4, 10, 40, 56, 15]
+print(binary_search(arr,1,len(arr)-1,15))
